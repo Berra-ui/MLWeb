@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MLWeb.Models.HomeAViewModel>
+@{
+    ViewBag.Title = "HomeA";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Home About</h2>
+<br />
+
+
+<table class="table table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>DİL</th>
+        <th>YAZI</th>
+        <th>BAŞLIK</th>
+        <th>RESİM</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.id</td>
+            <td>@x.Lang</td>
+            <td>@Html.Raw(x.Text)</td>
+            <td>@Html.Raw(x.Caption)</td>
+            <td><img src="@x.img" width="200px" /></td>
+            <td><a href="/Admin/HomeAGetir/@x.id" class="btn btn-warning">GÜNCELLE </a></td>
+        </tr>
+        }
+
+    </table> 
+
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MLWeb.Models.HomeSViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Slider Edit</h2>
+<br />
+<td><a href="/Admin/SlideEkle" class="btn btn-danger">EKLE</a></td>
+<table class="table table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>DİL</th>
+        <th>YAZI</th>
+        <th>RESİM</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.id</td>
+            <td>@x.Lang</td>
+            <td>
+            @Html.Raw(x.Text)
+                
+            
+            </td>
+            <td><img src="@x.img" width="200px" /> </td>
+            
+            <td><a href="/Admin/SlideSil/@x.id" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Admin/SlideGetir/@x.id" class="btn btn-warning">GÜNCELLE </a></td>
+
+        </tr>
+    }
+</table>
+

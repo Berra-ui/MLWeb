@@ -1,0 +1,86 @@
+﻿@using MLWeb.Models
+@model ContactViewModel
+
+@{
+    ViewBag.Title = "iletisimgetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>iletisimgetir</h2>
+<script src="~/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("iletisimguncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new
+{
+    @class = "form-control",
+    @readonly = "readonly"
+
+})
+    <br />
+
+    @Html.LabelFor(x => x.Lang)
+    @Html.TextBoxFor(x => x.Lang, new
+{
+    @class = "form-control",
+    @readonly = "readonly"
+
+})
+    <br />
+
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik
+, new
+ {
+     @class = "form-control"
+ })
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, new
+{
+    @id = "editor1"
+})
+    <br />
+    @Html.LabelFor(x => x.Tel)
+    @Html.TextBoxFor(x => x.Tel, new
+ {
+     @class = "form-control"
+ })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new
+ {
+     @class = "form-control"
+ })
+    <br />
+
+    @Html.LabelFor(x => x.Adres)
+    @Html.TextBoxFor(x => x.Adres, new
+{
+    @class = "form-control"
+
+})
+    <br />
+    @Html.LabelFor(x => x.Map)
+    @Html.TextBoxFor(x => x.Map, new
+{
+    @class = "form-control"
+
+})
+    <br />
+
+
+    <input type="submit" value="Kaydet" />
+    <script type="text/javascript">
+    var editor = CKEDITOR.instances['editor1'];
+    if (editor) { editor.destroy(true); }
+    CKEDITOR.replace('editor1', {
+        enterMode: CKEDITOR.ENTER_BR,
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/ckeditor/ckfinder/")');
+    </script>
+
+}
+

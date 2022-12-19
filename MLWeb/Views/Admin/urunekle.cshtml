@@ -1,0 +1,48 @@
+﻿@using MLWeb.Models
+@model ProductsViewModel
+@{
+    ViewBag.Title = "urunekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>urunekle</h2>
+<script src="~/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("urunekle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.LabelFor(x => x.Lang)
+    @Html.TextBoxFor(x => x.Lang, new
+ {
+     @class = "form-control"
+ })
+
+
+    <br />
+    @Html.LabelFor(x => x.explanation)
+    @Html.TextAreaFor(x => x.explanation, new
+{
+    @id = "editor1"
+})
+    <br />
+    <br />
+    @Html.LabelFor(x => x.Caption)
+    @Html.TextBoxFor(x => x.Caption, new
+ {
+     @class = "form-control"
+ })
+    <br />
+
+    <input type="file" name="Urunimg" />
+    <input type="file" name="Tablo" />
+    <input type="submit" value="Kaydet" />
+
+}
+<script type="text/javascript">
+    var editor = CKEDITOR.instances['editor1'];
+    if (editor) { editor.destroy(true); }
+    CKEDITOR.replace('editor1', {
+        enterMode: CKEDITOR.ENTER_BR,
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/ckeditor/ckfinder/")');
+</script>
+

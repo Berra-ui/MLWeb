@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e42af31a3bc462692d26e50b9c5d431" Name="Diagram1">
+        <EntityTypeShape EntityType="MLWebModel.ContactP" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MLWebModel.Home" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MLWebModel.HomeS" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MLWebModel.HomeA" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MLWebModel.Admins" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MLWebModel.Products" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MLWebModel.Contact" Width="1.5" PointX="6.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MLWebModel.AboutPage" Width="1.5" PointX="3.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MLWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="10" />
+          <Property Name="AText" Type="nvarchar(max)" />
+          <Property Name="AboutPageimg" Type="nvarchar" MaxLength="100" />
+          <Property Name="ABaslik" Type="nvarchar(max)" />
+          <Property Name="AboutExp" Type="nvarchar(max)" />
+          <Property Name="AboutExpCap" Type="nvarchar(max)" />
+          <Property Name="Tablo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici" Type="nvarchar(max)" />
+          <Property Name="Sifre" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="10" />
+          <Property Name="Baslik" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="100" />
+          <Property Name="Mail" Type="nvarchar(max)" />
+          <Property Name="Map" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ContactP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="10" />
+          <Property Name="Pcontact" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="10" />
+          <Property Name="PText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HomeA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="10" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="img" Type="nvarchar" MaxLength="100" />
+          <Property Name="Caption" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HomeS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="10" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="img" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Caption" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Urunimg" Type="nvarchar(max)" />
+          <Property Name="explanation" Type="nvarchar(max)" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="10" />
+          <Property Name="Tablo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="MLWebModelStoreContainer">
+          <EntitySet Name="AboutPage" EntityType="Self.AboutPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactP" EntityType="Self.ContactP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Home" EntityType="Self.Home" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeA" EntityType="Self.HomeA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeS" EntityType="Self.HomeS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MLWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ContactP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Pcontact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="MLWebEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContactP" EntityType="Self.ContactP" />
+          <EntitySet Name="Home" EntityType="Self.Home" />
+          <EntitySet Name="HomeS" EntityType="MLWebModel.HomeS" />
+          <EntitySet Name="HomeA" EntityType="MLWebModel.HomeA" />
+          <EntitySet Name="Admins" EntityType="MLWebModel.Admins" />
+          <EntitySet Name="Products" EntityType="MLWebModel.Products" />
+          <EntitySet Name="Contact" EntityType="MLWebModel.Contact" />
+          <EntitySet Name="AboutPage" EntityType="MLWebModel.AboutPage" />
+        </EntityContainer>
+        <EntityType Name="HomeS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HomeA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Caption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Caption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Urunimg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="explanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Lang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Tablo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Baslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Map" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AboutPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutPageimg" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ABaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutExp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutExpCap" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tablo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MLWebModelStoreContainer" CdmEntityContainer="MLWebEntities">
+          <EntitySetMapping Name="ContactP">
+            <EntityTypeMapping TypeName="MLWebModel.ContactP">
+              <MappingFragment StoreEntitySet="ContactP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="Pcontact" ColumnName="Pcontact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Home">
+            <EntityTypeMapping TypeName="MLWebModel.Home">
+              <MappingFragment StoreEntitySet="Home">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="PText" ColumnName="PText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeS">
+            <EntityTypeMapping TypeName="MLWebModel.HomeS">
+              <MappingFragment StoreEntitySet="HomeS">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeA">
+            <EntityTypeMapping TypeName="MLWebModel.HomeA">
+              <MappingFragment StoreEntitySet="HomeA">
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="MLWebModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="MLWebModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Tablo" ColumnName="Tablo" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="explanation" ColumnName="explanation" />
+                <ScalarProperty Name="Urunimg" ColumnName="Urunimg" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="MLWebModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Map" ColumnName="Map" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutPage">
+            <EntityTypeMapping TypeName="MLWebModel.AboutPage">
+              <MappingFragment StoreEntitySet="AboutPage">
+                <ScalarProperty Name="Tablo" ColumnName="Tablo" />
+                <ScalarProperty Name="AboutExpCap" ColumnName="AboutExpCap" />
+                <ScalarProperty Name="AboutExp" ColumnName="AboutExp" />
+                <ScalarProperty Name="ABaslik" ColumnName="ABaslik" />
+                <ScalarProperty Name="AboutPageimg" ColumnName="AboutPageimg" />
+                <ScalarProperty Name="AText" ColumnName="AText" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,45 @@
+﻿@using MLWeb.Models
+@model List<ContactViewModel>
+
+        <div class="container py-4">
+            <div class="row mb-5">
+                @foreach (var x in Model)
+                {
+                    <div class="col-lg-4">
+                        <div class="overflow-hidden mb-3">
+                            <h4 class="pt-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200" data-plugin-options="{'accY': -200}">@x.Baslik</h4>
+                        </div>
+                        <div class="overflow-hidden mb-3">
+                            <p class="lead text-4 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="400" data-plugin-options="{'accY': -200}">@Html.Raw(x.Aciklama)</p>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 offset-lg-1 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="800" data-plugin-options="{'accY': -200}">
+                        <ul class="list list-icons list-icons-style-3 mt-2">
+                            <li><i class="fas fa-map-marker-alt top-6"></i> <strong>Address:</strong> @x.Adres</li>
+                            <li><i class="fas fa-phone top-6"></i> <strong>Phone:</strong> @x.Tel</li>
+                            <li><i class="fas fa-envelope top-6"></i> <strong>Email:</strong> <a href="@x.Mail">@x.Mail</a></li>
+                        </ul>
+                       
+                    </div>
+                    <div class="col-lg-12">
+                        <p>
+                            <iframe allowfullscreen="" height="530" src="@x.Map" style="border:0;" width="100%"></iframe>
+                        </p>
+
+                    </div>
+
+                        }
+
+                    </div>
+       </div>
+
+
+
+
+
+
+
+
+
+

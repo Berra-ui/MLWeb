@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MLWeb.Models.ProductsViewModel>
+@{
+    ViewBag.Title = "urunler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>urunler</h2>
+@foreach (var x in Model)
+{
+    <table class="table table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>DİL</th>
+            <th>BAŞLIK</th>
+            <th>AÇIKLAMA</th>
+            <th>RESİM</th>
+            <th>TABLO</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+
+        </tr>
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Lang</td>
+            <td>@x.Caption</td>
+            <td> @Html.Raw(x.explanation)</td>
+            <td><img src="@x.Urunimg" width="200px" /> </td>
+            <td><img src="@x.Tablo" width="200px" /> </td>
+            <td><a href="/Admin/UrunSil/@x.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Admin/UrunlerGetir/@x.ID" class="btn btn-warning">GÜNCELLE </a></td>
+        </tr>
+
+    </table>
+
+}
+<td><a href="/Admin/urunekle" class="btn btn-default">EKLE</a></td>
+
+
+
+
+

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MLWeb.Models.AboutPageViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Slider Edit</h2>
+<br />
+<table class="table table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>DİL</th>
+        <th>YAZI</th>
+        <th>RESİM</th>
+        <th>BAŞLIK</th>
+        <th>AÇIKLAMA</th>
+        <th>AÇIKLAMA BAŞLIĞI</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Lang</td>
+            <td>@x.AText</td>
+            <td><img src="@x.AboutPageimg" width="200px" /> </td>
+            <td>@x.ABaslik</td>
+            <td>@Html.Raw(x.AboutExp)</td>
+            <td>@Html.Raw(x.AboutExpCap)</td>
+  
+
+          <td><a href="/Admin/hakkimizdagetir/@x.ID" class="btn btn-warning">GÜNCELLE </a></td>
+
+        </tr>
+    }
+</table>

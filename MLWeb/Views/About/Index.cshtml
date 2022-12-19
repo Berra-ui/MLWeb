@@ -1,0 +1,70 @@
+﻿@using MLWeb.Models
+@model List<AboutPageViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ILayout.cshtml";
+}
+
+
+
+<div role="main" class="main">
+    @foreach (var x in Model)
+    {
+        <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-7" style="background-image: url(@x.AboutPageimg);">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-md-12 align-self-center p-static order-2 text-center">
+                        <h1 class="text-9 font-weight-bold">@x.ABaslik</h1>
+                        <span class="sub-title">@x.AText</span>
+                    </div>
+                    @*<div class="col-md-12 align-self-center order-1">
+                    <ul class="breadcrumb breadcrumb-light d-block text-center">
+                        <li><a href="#">@x.ABaslik</a></li>
+                        <li class="active">@x.AText</li>
+                    </ul>
+                </div>*@
+                </div>
+            </div>
+        </section>
+
+
+        <div class="container">
+
+            <div class="row pt-5">
+                <div class="col">
+
+                    <div class="row text-center pb-5">
+                        <div class="col-md-9 mx-md-auto">
+                            <div class="overflow-hidden mb-3">
+                                <h1 class="word-rotator slide font-weight-bold text-8 mb-0 appear-animation" data-appear-animation="maskUp">
+                                    <span>@Html.Raw(x.AboutExpCap) </span>
+                                    @*<span class="word-rotator-words bg-primary">
+                                    <b class="is-visible">@x.AboutExpCapWordRotator</b>
+                                    <b>Build</b>
+                                    <b>Develop</b>
+                                </span>
+                                <span> Solutions</span>*@
+                                </h1>
+                            </div>
+                            <div class="overflow-hidden mb-3">
+                                <p class="lead mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                    @Html.Raw(x.AboutExp)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+          
+        </div>  }
+
+ 
+
+</div>
+
+

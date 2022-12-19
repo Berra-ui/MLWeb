@@ -1,0 +1,45 @@
+﻿@using MLWeb.Models
+@model HomeSViewModel
+
+@{
+    ViewBag.Title = "SlideGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>SlideGuncelle</h2>
+<script src="~/ckeditor/ckeditor.js"></script>
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.id)
+    @Html.TextBoxFor(x => x.id, new
+{
+    @class = "form-control",
+         @readonly = "readonly"
+})
+    <br />
+    @Html.LabelFor(x => x.Lang)
+    @Html.TextBoxFor(x => x.Lang, new
+ {
+     @class = "form-control"
+ })
+    <br />
+    @Html.LabelFor(x => x.Text)
+    @Html.TextAreaFor(x => x.Text, new
+{
+    @id = "editor1"
+})
+    <br />
+
+
+    <input type="submit" value="Kaydet" />
+</form>
+<script type="text/javascript">
+    var editor = CKEDITOR.instances['editor1'];
+    if (editor) { editor.destroy(true); }
+    CKEDITOR.replace('editor1', {
+        enterMode: CKEDITOR.ENTER_BR,
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/ckeditor/ckfinder/")');
+</script>
+
+
+

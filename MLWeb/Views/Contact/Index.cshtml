@@ -1,0 +1,15 @@
+﻿ @using MLWeb.Models
+@model ContactViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ILayout.cshtml";
+}
+<div class="body" style="min-height:650px">
+    <div role="main" class="main">
+
+        @Html.Action("Partial1", "Contact")
+
+       
+    </div>
+</div>

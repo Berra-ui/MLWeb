@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MLWeb.Models.ContactViewModel>
+@{
+    ViewBag.Title = "iletisim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>iletisim</h2>
+<table class="table table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>DİL</th>
+        <th>BAŞLIK</th>
+        <th>AÇIKLAMA</th>
+        <th>ADRES</th>
+        <th>TEL</th>
+        <th>MAİL</th>
+        <th>KONUM</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Lang</td>
+            <td>@x.Baslik</td>
+            <td>@Html.Raw(x.Aciklama)</td>
+            <td>@x.Adres</td>
+            <th>@x.Tel</th>
+            <th>@x.Mail</th>
+            <th>@x.Map</th>
+            
+            <td><a href="/Admin/iletisimgetir/@x.ID" class="btn btn-warning">GÜNCELLE </a></td>
+
+        </tr>
+    }
+    </table>
+

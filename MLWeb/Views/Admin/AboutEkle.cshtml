@@ -1,0 +1,52 @@
+﻿@using MLWeb.Models
+@model AboutPageViewModel
+@{
+    ViewBag.Title = "AboutEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AboutEkle</h2>
+<script src="~/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("AboutEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.LabelFor(x => x.Lang)
+    @Html.TextBoxFor(x => x.Lang, new
+    {
+        @class = "form-control"
+    })
+    <br />
+    @Html.LabelFor(x => x.ABaslik)
+    @Html.TextBoxFor(x => x.ABaslik, new
+ {
+     @class = "form-control"
+ })
+    <br />
+    @Html.LabelFor(x => x.AboutExp)
+    @Html.TextAreaFor(x => x.AboutExp, new
+{
+    @id = "editor1"
+})
+    <br />
+    @Html.LabelFor(x => x.AText)
+    @Html.TextBoxFor(x => x.AText, new
+    {
+        @class = "form-control"
+    })
+    <br />
+
+
+    <input type="file" name="AboutPageimg" />
+
+    <input type="submit" value="Kaydet" />
+
+}
+<script type="text/javascript">
+    var editor = CKEDITOR.instances['editor1'];
+    if (editor) { editor.destroy(true); }
+    CKEDITOR.replace('editor1', {
+        enterMode: CKEDITOR.ENTER_BR,
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/ckeditor/ckfinder/")');
+</script>
