@@ -5,18 +5,13 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Slide Ekleme</h2>
+
 <script src="~/ckeditor/ckeditor.js"></script>
 
 @using (Html.BeginForm("SlideEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.LabelFor(x => x.Lang)
-    @Html.TextBoxFor(x => x.Lang, new
- {
-     @class = "form-control"
- })
-
-
+    @Html.DropDownList("lang", new SelectList(ViewBag.lang, "Value", "Text"), "Kategori Seçiniz", new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Text)
     @Html.TextBoxFor(x => x.Text, new

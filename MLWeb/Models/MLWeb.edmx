@@ -74,6 +74,14 @@
           <Property Name="Text" Type="nvarchar(max)" />
           <Property Name="img" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DilKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="DilAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="ID" />
@@ -94,6 +102,7 @@
           <EntitySet Name="Home" EntityType="Self.Home" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HomeA" EntityType="Self.HomeA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HomeS" EntityType="Self.HomeS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -125,6 +134,7 @@
           <EntitySet Name="Products" EntityType="MLWebModel.Products" />
           <EntitySet Name="Contact" EntityType="MLWebModel.Contact" />
           <EntitySet Name="AboutPage" EntityType="MLWebModel.AboutPage" />
+          <EntitySet Name="Language" EntityType="MLWebModel.Language" />
         </EntityContainer>
         <EntityType Name="HomeS">
           <Key>
@@ -190,6 +200,14 @@
           <Property Name="AboutExp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AboutExpCap" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Tablo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DilKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DilAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -282,6 +300,15 @@
                 <ScalarProperty Name="AboutPageimg" ColumnName="AboutPageimg" />
                 <ScalarProperty Name="AText" ColumnName="AText" />
                 <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Language">
+            <EntityTypeMapping TypeName="MLWebModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="DilAdi" ColumnName="DilAdi" />
+                <ScalarProperty Name="DilKodu" ColumnName="DilKodu" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

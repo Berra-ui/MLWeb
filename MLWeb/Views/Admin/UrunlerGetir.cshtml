@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <script src="~/ckeditor/ckeditor.js"></script>
-<h2>UrunlerGetir</h2>
+
 @using (Html.BeginForm("UrunGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.LabelFor(x => x.ID)
@@ -18,7 +18,7 @@
 })
     <br />
     @Html.LabelFor(x => x.Lang)
-    @Html.TextBoxFor(x => x.Lang, new
+    @Html.DropDownListFor(x => x.Lang,(List<SelectListItem>)ViewBag.langlist, new
 {
 @class = "form-control"
     })

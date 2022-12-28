@@ -12,9 +12,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>ATAC METAL YÖNETİM PANELİ</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Kurumsal Web Admin</title>
+   
     @Scripts.Render("~/Scripts/jquery-1.7.1.min.js")
     @Scripts.Render("~/ckeditor/ckeditor.js")
     @Scripts.Render("~/ckeditor/ckfinder/ckfinder.js")
@@ -74,11 +75,11 @@
 
         <header class="header dark-bg">
             <div class="toggle-nav">
-                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+                <div class="icon-reorder tooltips" data-original-title="Menü" data-placement="bottom"><i class="icon_menu"></i></div>
             </div>
 
             <!--logo start-->
-            <a href="/Admin/Index/" class="logo"><span class="lite">Admin</span></a>
+            @*<a href="/Admin/Index/" class="logo"><span class="lite">Admin</span></a>*@
             <!--logo end-->
             <!--<div class="nav search-row" id="top_menu">-->
             <!--  search form start -->
@@ -300,12 +301,12 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img src="~/Content/AdminLayout/img/icons/yazılımtomurcuğu.jpg" height="40" width="40" />
+                                <img src="" height="40" width="40" />
                             </span>
                             <span class="username">@Session["eposta"]</span>
                             <b class="caret"></b>
                         </a>
-                        <div class="log-arrow-up"></div>
+                        @*<div class="log-arrow-up"></div>*@
                         <ul class="dropdown-menu extended logout">
                             <li>
                                 <a href="/Home/Index/"><i class="btn btn-blue"></i>Siteye git</a>
@@ -329,23 +330,16 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
-                    <li class="active">
+                    @*<li class="active">
+            <a class="" href="/Admin/HomeA">
+                <i class="icon_house_alt"></i>
+                <span>AnaSayfa Hakkımızda Yazısı</span>
+            </a>
+        </li>*@
+                    <li>
                         <a class="" href="/Admin/HomeA">
-                            <i class="icon_house_alt"></i>
-                            <span>Index</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" href="/Admin/urunler">
                             <i class="icon_genius"></i>
-                            <span>ÜRÜNLER</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="" href="/Admin/About">
-                            <i class="icon_genius"></i>
-                            <span>Hakkımızda</span>
+                            <span>Anasayfa</span>
                         </a>
                     </li>
                     <li>
@@ -355,12 +349,26 @@
                         </a>
                     </li>
                     <li>
+                        <a class="" href="/Admin/urunler">
+                            <i class="icon_genius"></i>
+                            <span>Ürünler</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="" href="/Admin/About">
+                            <i class="icon_genius"></i>
+                            <span>Hakkımızda</span>
+                        </a>
+                    </li>
+
+                    <li>
                         <a class="" href="/Admin/iletisim">
                             <i class="icon_genius"></i>
                             <span>İletişim</span>
                         </a>
                     </li>
-                    
+
 
 
 
@@ -377,10 +385,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="page-header"><i class="fa fa-laptop"></i> Admin Paneli </h3>
-                        <ol class="breadcrumb">
-                            <li><i class="fa fa-home"></i><a href="#">@*@ContollerAdi*@</a></li>
-
-                        </ol>
+                       
                     </div>
                 </div>
                 @RenderBody()

@@ -14,6 +14,7 @@ namespace MLWeb.Models
         [AllowHtml]
         public string Text { get; set; }
             public string img { get; set; }
-        
+        public List<LanguageViewModel> dil { get; set; }
+
     }
 }

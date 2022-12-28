@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>urunler</h2>
+
+<td><a href="/Admin/urunekle" class="btn btn-danger">EKLE</a></td>
 @foreach (var x in Model)
 {
     <table class="table table table-bordered">
@@ -16,6 +17,7 @@
             <th>RESİM</th>
             <th>TABLO</th>
             <th>SİL</th>
+
             <th>GÜNCELLE</th>
 
         </tr>
@@ -33,7 +35,7 @@
     </table>
 
 }
-<td><a href="/Admin/urunekle" class="btn btn-default">EKLE</a></td>
+
 
 
 

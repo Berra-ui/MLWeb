@@ -6,21 +6,24 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>SlideGuncelle</h2>
+
 <script src="~/ckeditor/ckeditor.js"></script>
 <form class="form-group" method="post">
+
     @Html.LabelFor(x => x.id)
     @Html.TextBoxFor(x => x.id, new
 {
     @class = "form-control",
-         @readonly = "readonly"
+ @readonly = "readonly"
+
 })
-    <br />
+    <br/>
     @Html.LabelFor(x => x.Lang)
-    @Html.TextBoxFor(x => x.Lang, new
+    @Html.DropDownListFor(x => x.dil, (List<SelectListItem>)ViewBag.lang, new
  {
-     @class = "form-control"
- })
+ @class = "form-control"
+     })
+    })
     <br />
     @Html.LabelFor(x => x.Text)
     @Html.TextAreaFor(x => x.Text, new

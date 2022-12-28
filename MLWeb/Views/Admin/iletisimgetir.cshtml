@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>iletisimgetir</h2>
+
 <script src="~/ckeditor/ckeditor.js"></script>
 
 @using (Html.BeginForm("iletisimguncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -27,7 +27,7 @@
     @class = "form-control",
     @readonly = "readonly"
 
-})
+}) 
     <br />
 
     @Html.LabelFor(x => x.Baslik)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,6 +21,10 @@ namespace MLWeb.Models
         public string explanation { get; set; }
         public string Lang { get; set; }
         public string Tablo { get; set; }
+
+        public List<LanguageViewModel> dil { get; set; }
+
+
     }
    
 }

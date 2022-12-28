@@ -26,9 +26,18 @@ namespace MLWeb.Controllers
             var bilgiler = db.Admins.FirstOrDefault(x => x.Kullanici == ad.Kullanici && x.Sifre==ad.Sifre);
             if(bilgiler != null)
             {
-                FormsAuthentication.SetAuthCookie(bilgiler.Kullanici, false);
-                Session["Kullanici"] = bilgiler.Kullanici.ToString();
-                return RedirectToAction("Index","Admin");
+                if (ad.Sifre==bilgiler.Sifre)
+                {
+                    FormsAuthentication.SetAuthCookie(bilgiler.Kullanici, false);
+                    Session["Kullanici"] = bilgiler.Kullanici.ToString();
+                    return RedirectToAction("Index", "Admin");
+
+                }
+                else
+                {
+                    return View();
+                }
+                
 
             }
             else { return View(); }

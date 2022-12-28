@@ -10,7 +10,7 @@
 <div role="main" class="main">
     @foreach (var x in Model)
     {
-        <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-7" style="background-image: url(@x.AboutPageimg);">
+        <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-7" style="background-image: url('@x.AboutPageimg');">
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-md-12 align-self-center p-static order-2 text-center">
@@ -18,11 +18,11 @@
                         <span class="sub-title">@x.AText</span>
                     </div>
                     @*<div class="col-md-12 align-self-center order-1">
-                    <ul class="breadcrumb breadcrumb-light d-block text-center">
-                        <li><a href="#">@x.ABaslik</a></li>
-                        <li class="active">@x.AText</li>
-                    </ul>
-                </div>*@
+                            <ul class="breadcrumb breadcrumb-light d-block text-center">
+                                <li><a href="#">@x.ABaslik</a></li>
+                                <li class="active">@x.AText</li>
+                            </ul>
+                        </div>*@
                 </div>
             </div>
         </section>
@@ -39,11 +39,11 @@
                                 <h1 class="word-rotator slide font-weight-bold text-8 mb-0 appear-animation" data-appear-animation="maskUp">
                                     <span>@Html.Raw(x.AboutExpCap) </span>
                                     @*<span class="word-rotator-words bg-primary">
-                                    <b class="is-visible">@x.AboutExpCapWordRotator</b>
-                                    <b>Build</b>
-                                    <b>Develop</b>
-                                </span>
-                                <span> Solutions</span>*@
+                                            <b class="is-visible">@x.AboutExpCapWordRotator</b>
+                                            <b>Build</b>
+                                            <b>Develop</b>
+                                        </span>
+                                        <span> Solutions</span>*@
                                 </h1>
                             </div>
                             <div class="overflow-hidden mb-3">
@@ -60,10 +60,10 @@
 
                 </div>
             </div>
-          
-        </div>  }
 
- 
+        </div>}
+
+
 
 </div>
 

@@ -41,8 +41,11 @@ namespace MLWeb.Controllers
                     s.Text = a.Text;
                     s.Lang = a.Lang;
                     model.Add(s);
+                    ViewBag.kategori = s.Lang;
 
                 }
+
+              
                 return View(model);
 
             }
@@ -133,8 +136,17 @@ namespace MLWeb.Controllers
                 model.explanation = tb.explanation;
                 model.Urunimg = tb.Urunimg;
                 model.Tablo = tb.Tablo;
+              
 
             }
+            List<SelectListItem> langlist = (from a in db.Language.ToList()
+                                             select new SelectListItem()
+                                             {
+                                                 Text = a.DilKodu,
+                                                 Value = a.DilKodu.ToString()
+                                             }).ToList();
+            ViewBag.lang = langlist;
+
             db.SaveChanges();
             return View(model);
         }
@@ -169,6 +181,7 @@ namespace MLWeb.Controllers
                     model.Add(s);
 
                 }
+                ViewBag.mod = model;
                 return View(model);
 
             }
@@ -211,9 +224,17 @@ namespace MLWeb.Controllers
         }
         [Authorize]
 
-
+        [ValidateInput(false)]
         public ActionResult SlideEkle()
         {
+            List<SelectListItem> langlist = (from a in db.Language.ToList()
+                                             select new SelectListItem()
+                                             {
+                                                 Text = a.DilKodu,
+                                                 Value = a.DilKodu.ToString()
+                                             }).ToList();
+            ViewBag.lang = langlist;
+
             return View();
         }
 
@@ -359,6 +380,7 @@ namespace MLWeb.Controllers
                     Request.Files[0].SaveAs(Server.MapPath(yol));
                     tb.img = "/img/" + dosyaadi + uzanti;
                 }
+                var sld = db.Language.Where(x => x.ID == p.id).SingleOrDefault();
 
                 db.SaveChanges();
             }
@@ -376,7 +398,7 @@ namespace MLWeb.Controllers
             if (tb != null)
             {
                 tb.AText = p.AText;
-                tb.AboutExp = p.AboutExp;
+                tb.AboutExp = p.AboutExp; 
                 tb.ID = p.ID;
                 tb.ABaslik = p.ABaslik;
                 tb.AboutExpCap = p.AboutExpCap;
@@ -385,16 +407,16 @@ namespace MLWeb.Controllers
                 {
                     string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                     string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                    string yol = "~/img/" + dosyaadi + uzanti;
+                    string yol = "~/img/" + dosyaadi;
                     Request.Files[0].SaveAs(Server.MapPath(yol));
-                    tb.AboutPageimg = "/img/" + dosyaadi + uzanti;
+                    tb.AboutPageimg = "/img/" + dosyaadi;
                 }
                 db.SaveChanges();
             }
             return RedirectToAction("About");
         }
         [Authorize]
-
+        [ValidateInput(false)]
         public ActionResult SlideGetir(int id, HomeS p)
         {
             HomeSViewModel model = new HomeSViewModel();
@@ -419,7 +441,13 @@ namespace MLWeb.Controllers
 
             }
 
-
+            List<SelectListItem> langlist = (from a in db.Language.ToList()
+                                             select new SelectListItem()
+                                             {
+                                                 Text = a.DilKodu,
+                                                 Value = a.DilKodu.ToString()
+                                             }).ToList();
+            ViewBag.lang = langlist;
             db.SaveChanges();
             return View(model);
 
@@ -450,6 +478,13 @@ namespace MLWeb.Controllers
                     Request.Files[0].SaveAs(Server.MapPath(yol));
                     p.img = "/img/" + dosyaadi + uzanti;
                 }
+                List<SelectListItem> langlist = (from a in db.Language.ToList()
+                                                 select new SelectListItem()
+                                                 {
+                                                     Text = a.DilKodu,
+                                                     Value = a.DilKodu.ToString()
+                                                 }).ToList();
+                ViewBag.lang = langlist;
 
 
                 db.HomeS.Add(p);
@@ -462,18 +497,26 @@ namespace MLWeb.Controllers
             return RedirectToAction("Index");
         }
         [Authorize]
-
+        [ValidateInput(false)]
         public ActionResult urunekle()
         {
+            List<SelectListItem> langlist = (from a in db.Language.ToList()
+                                             select new SelectListItem()
+                                             {
+                                                 Text = a.DilKodu,
+                                                 Value = a.DilKodu.ToString()
+                                             }).ToList();
+            ViewBag.lang = langlist;
 
             return View();
         }
         [Authorize]
-        [HttpPost]
+        [HttpPost,ValidateInput(false)]
         public ActionResult urunekle(Products p)
         {
             ProductsViewModel model = new ProductsViewModel();
             int ID = p.ID;
+         
 
             {
                 string Lang = "TR";
@@ -487,28 +530,37 @@ namespace MLWeb.Controllers
 
                 if (p.Urunimg != null)
                 {
-                    string yeniisim = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
-
+                    string yeniisim = p.ID.ToString();
                     string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                     string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                    string yol = "~/img/" + dosyaadi +yeniisim;
-                    Request.Files[0].SaveAs(Server.MapPath(yol));
-                    p.Urunimg = "/img/" + dosyaadi ;
+                    string yol = "~/img/" +  yeniisim + dosyaadi;
+                     Request.Files[0].SaveAs(Server.MapPath(yol));
+                    p.Urunimg = "/img/" + yeniisim + dosyaadi ;
                 }
                 if (p.Tablo != null)
                 {
-                    string yeniisim = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+                    string yeniisim = p.ID.ToString();
 
-                    string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
-                    string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                    string yol = "~/img/" + dosyaadi+yeniisim;
-                    Request.Files[0].SaveAs(Server.MapPath(yol));
-                    p.Tablo = "/img/" + dosyaadi ;
+                    string dosyaadi = Path.GetFileName(Request.Files[1].FileName);
+                    string uzanti = Path.GetExtension(Request.Files[1].FileName);
+                    string yol = "~/img/" +yeniisim + dosyaadi;
+                    Request.Files[1].SaveAs(Server.MapPath(yol));
+                    p.Tablo = "/img/" + yeniisim + dosyaadi ;
                 }
+                List<SelectListItem> langlist = (from a in db.Language.ToList()
+                                                 select new SelectListItem()
+                                                 {
+                                                     Text = a.DilKodu,
+                                                     Value = a.DilKodu.ToString()
+                                                 }).ToList();
+                ViewBag.lang = langlist;
+
+
                 db.Products.Add(p);
 
                 db.SaveChanges();
             }
+           
 
             return RedirectToAction("urunler");
         }
@@ -561,29 +613,30 @@ namespace MLWeb.Controllers
 
                 if (p.Urunimg != null)
                 {
-                    string yeniisim = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+                    string yeniisim = p.ID.ToString();
 
                     string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                     string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                    string yol = "~/img/" + dosyaadi + yeniisim;
+                    string yol = "~/img/" +   yeniisim + dosyaadi;
                     Request.Files[0].SaveAs(Server.MapPath(yol));
-                    tb.Urunimg = "/img/" + dosyaadi ;
+                    tb.Urunimg = "/img/" + yeniisim+ dosyaadi ;
                 }
                 if (p.Tablo != null)
                 {
-                    string yeniisim = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
-
+                    string yeniisim = p.ID.ToString();
                     string dosyaadi = Path.GetFileName(Request.Files[1].FileName);
                     string uzanti = Path.GetExtension(Request.Files[1].FileName);
-                    string yol = "~/img/" + dosyaadi + yeniisim;
-                    Request.Files[0].SaveAs(Server.MapPath(yol));
-                    tb.Tablo = "/img/" + dosyaadi;
+                    string yol = "~/img/" + yeniisim + dosyaadi;
+                    Request.Files[1].SaveAs(Server.MapPath(yol));
+                    tb.Tablo = "/img/" + yeniisim+ dosyaadi;
                 }
-
+                var urn = db.Language.Where(x => x.ID == p.ID).SingleOrDefault();
                 db.SaveChanges();
             }
-
-
+            
+            
+           
+      
             return RedirectToAction("urunler");
         }
         [Authorize]

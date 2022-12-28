@@ -33,5 +33,6 @@ namespace MLWeb.Models
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
         public virtual DbSet<AboutPage> AboutPage { get; set; }
+        public virtual DbSet<Language> Language { get; set; }
     }
 }

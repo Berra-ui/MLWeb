@@ -5,17 +5,40 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>AboutEkle</h2>
+
 <script src="~/ckeditor/ckeditor.js"></script>
 
 @using (Html.BeginForm("AboutEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     @Html.LabelFor(x => x.Lang)
-    @Html.TextBoxFor(x => x.Lang, new
-    {
-        @class = "form-control"
-    })
+    @Html.DropDownList("ID", new List<SelectListItem> {
+                     new SelectListItem {
+                        Text="tr",
+                        Value="1",
+
+                     },
+                     new SelectListItem {
+                        Text="en",
+                        Value="2",
+
+                     },
+                      new SelectListItem {
+                        Text="ar",
+                        Value="3",
+
+                     },
+                       new SelectListItem {
+                        Text="ru",
+                        Value="4",
+
+                     },
+
+                 }, "Kategori Seçiniz", new
+                 {
+                     @class = "form-control",
+                    
+                 })
     <br />
     @Html.LabelFor(x => x.ABaslik)
     @Html.TextBoxFor(x => x.ABaslik, new

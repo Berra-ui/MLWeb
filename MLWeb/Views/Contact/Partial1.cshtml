@@ -18,13 +18,14 @@
                         <ul class="list list-icons list-icons-style-3 mt-2">
                             <li><i class="fas fa-map-marker-alt top-6"></i> <strong>Address:</strong> @x.Adres</li>
                             <li><i class="fas fa-phone top-6"></i> <strong>Phone:</strong> @x.Tel</li>
-                            <li><i class="fas fa-envelope top-6"></i> <strong>Email:</strong> <a href="@x.Mail">@x.Mail</a></li>
+                            <li><i class="fas fa-envelope top-6"></i> <strong>Email:</strong> @x.Mail</li>
                         </ul>
                        
                     </div>
                     <div class="col-lg-12">
                         <p>
-                            <iframe allowfullscreen="" height="530" src="@x.Map" style="border:0;" width="100%"></iframe>
+                            @Html.Raw(x.Map)
+
                         </p>
 
                     </div>

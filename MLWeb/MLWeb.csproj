@@ -185,6 +185,10 @@
     </Compile>
     <Compile Include="Models\HomeSViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>MLWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LanguageViewModel.cs" />
     <Compile Include="Models\MLWeb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3768,17 +3772,6 @@
     <Content Include="image\vertical-lines.svg" />
     <Content Include="image\vimeo-1.jpg" />
     <Content Include="image\youtube-1.jpg" />
-    <Content Include="img\1577716354.jpg" />
-    <Content Include="img\1577716354.jpg.jpg" />
-    <Content Include="img\60a22edb2117d162124156383 - Kopya.jpg.jpg" />
-    <Content Include="img\bakir.jpg" />
-    <Content Include="img\EOMWPP3vSx - Copy.jpg" />
-    <Content Include="img\EOMWPP3vSx.jpg" />
-    <Content Include="img\foundry-pig-iron.png.png" />
-    <Content Include="img\index.jpeg.jpeg" />
-    <Content Include="img\j.jpg.jpg" />
-    <Content Include="img\kuremetalll.jpg.jpg" />
-    <Content Include="img\u4 - Copy.jpg" />
     <Content Include="js\custom.js" />
     <Content Include="js\demos\demo-app-landing.js" />
     <Content Include="js\demos\demo-architecture-2.js" />
@@ -3915,6 +3908,12 @@
     </Content>
     <Content Include="myimg\1577716354.jpg" />
     <Content Include="myimg\about.jpg" />
+    <Content Include="myimg\aboutp.jpg" />
+    <Content Include="myimg\aboutpagei.jpg" />
+    <Content Include="myimg\aboutpageimg.jpg" />
+    <Content Include="myimg\afrikagezisi.jpg" />
+    <Content Include="myimg\ataclogo.jpg" />
+    <Content Include="myimg\atacmetallogosu.png" />
     <Content Include="myimg\balat.jpg" />
     <Content Include="myimg\Bali.jpg" />
     <Content Include="myimg\barcelona.jpg" />
@@ -4748,9 +4747,6 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\SECURITY.md" />
     <Content Include="ckeditor\skins\moono-lisa\readme.md" />
-    <Content Include="img\noduler-pig-iron.png151220221419679" />
-    <Content Include="img\altin.jpeg151220221458419" />
-    <Content Include="img\altin - Copy.jpeg151220221458419" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -8109,6 +8105,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\AdminLayout\assets\jquery-file-upload\server\php\files\thumbnail\" />
+    <Folder Include="img\" />
     <Folder Include="Views\IndexSlider\" />
     <Folder Include="Views\Language\" />
     <Folder Include="Views\Lang\" />
