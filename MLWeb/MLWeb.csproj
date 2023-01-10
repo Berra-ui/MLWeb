@@ -3920,6 +3920,7 @@
     <Content Include="myimg\belgrad.jpg" />
     <Content Include="myimg\gaziantepp.jpg" />
     <Content Include="myimg\girl.jpg" />
+    <Content Include="myimg\ihracat2.jpg.jpg" />
     <Content Include="myimg\kilise.jpg" />
     <Content Include="myimg\londra.jpg" />
     <Content Include="myimg\muze.jpg" />
@@ -4363,6 +4364,7 @@
     <Content Include="Themes\ckeditor\skins\v2\skin.js" />
     <Content Include="Themes\ckeditor\skins\v2\templates.css" />
     <Content Include="Themes\ckeditor\themes\default\theme.js" />
+    <Content Include="Views\Shared\HtmlPage1.html" />
     <Content Include="weblogin\css\style.css" />
     <Content Include="weblogin\images\b4.jpg" />
     <Content Include="weblogin\index.html" />
